@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Visualizacion grafica POBREZA EQP10</title>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body>
+	<h1> Visualizacion grafica POBREZA EQP10</h1>
+	<div class="dashboard-wrapper">
+	<div id='p1'class='panel'><h2>Zonas rurales</h2> <div id='p1Chart'></div> </div>
+	<div id='p2'class='panel'><h2>Zonas urbanas</h2> <div id='p2Chart'></div> </div>
+	<div id='p3'class='panel'><h2>Poblacion hablantes idigena</h2> <div id='p3Chart'></div> </div>
+	<div id='p4'class='panel'><h2>Poblacion no hablantes indigena</h2> <div id='p4Chart'></div> </div>
+	<div id='p5'class='panel'><h2>Poblacion adulta mayor</h2> <div id='p5Chart'></div> </div>
+	</div>
+
+	<script>
+		google.charts.load('current', {'packages':['sankey','corechart', 'bar', 'calendar']});
+		google.charts.setOnLoadCallback(drawCharts);
+
+function drawCharts() {
+	drawChartP1();
+	drawChartP2();
+	drawChartP3();
+	drawChartP4();
+	drawChartP5();
+	}
+
+function drawChartP1() {
+	var data = google.visualization.arrayToDataTable([
+		['DATO', 'ANO', 'ANO'],
+    		['RURALES', 2008, 2018],
+		['PORCENTAJE', 62.5, 55.3]
+		]);
+
+  	var chart = new google.visualization.BubbleChart(document.getElementById('p1Chart'));
+  	chart.draw(data, { 
+		backgroundColor:'transparent',
+		legend: 'bottom'
+		});
+	}
+
+function drawChartP2() {
+	var data = google.visualization.arrayToDataTable([
+		['DATO', 'ANO', 'ANO'],
+    		['URBANAS', 2008, 2018],
+		['PORCENTAJE', 38.9, 37.6]
+		]);
+
+  	var chart = new google.visualization.BarChart(document.getElementById('p2Chart'));
+  	chart.draw(data, { 
+		backgroundColor:'transparent',
+		legend: 'bottom'
+		});
+	}
+function drawChartP3() {
+	var data = google.visualization.arrayToDataTable([
+		['DATO', 'ANO', 'ANO'],
+    		['IDIGENA', 2008, 2018],
+		['PORCENTAJE', 76.0, 74.9]
+		]);
+
+  	var chart = new google.visualization.PieChart(document.getElementById('p3Chart'));
+  	chart.draw(data, { 
+		backgroundColor:'transparent',
+		legend: 'bottom'
+		});
+	}
+function drawChartP4() {
+	var data = google.visualization.arrayToDataTable([
+		['DATO', 'ANO', 'ANO'],
+    		['NO INDIGENA', 2008, 2018],
+		['PORCENTAJE', 41.4, 38.4]
+		]);
+
+  	var chart = new google.visualization.BubbleChart(document.getElementById('p4Chart'));
+  	chart.draw(data, { 
+		backgroundColor:'transparent',
+		legend: 'bottom'
+		});
+	}
+function drawChartP5() {
+	var data = google.visualization.arrayToDataTable([
+		['DATO', 'ANO', 'ANO'],
+    		['ADULTOS MAYORES', 2008, 2018],
+		['PORCENTAJE', 44.9, 41.1]
+		]);
+
+  	var chart = new google.visualization.BubbleChart(document.getElementById('p5Chart'));
+  	chart.draw(data, { 
+		backgroundColor:'transparent',
+		legend: 'bottom'
+		});
+	}
+
+
+
+
+	</script>
+
+	<style>
+body {
+	text-align: center;
+	background-color: #ececec;
+	font-family: 'Helvetica', sand-serif;
+	}
+h2 {
+	margin: 0px;
+	}
+.dashboard.wrapper{
+	margin: auto;
+	max-width: 920px;
+	display:grid;
+	grid-template-colums: 1fr 1fr 1fr;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+	}
+
+.dashboard-wrapper .panel{
+	text-align: left;
+	backgroud-color: #fff;
+	border: 1px solid #d3d3d3;
+	box-shadow: 0 0 4px 1px rgba(143,143,143,.2);
+	padding: 15px;
+	}
+
+.dashboard-wrapper #p1.panel, .dashboard-wrapper #p6.panel {
+	grid-column: 1 / 4;
+	}
+
+.bottom a {
+	color: #333;
+	text-decoration: none;
+	}
+
+@media screen and (max-width: 1024px) {
+	.dashboard-wrapper .panel {
+		grid-column: 1 / 4;
+		}
+	}
+		</style>
+	</body>
+</html>
